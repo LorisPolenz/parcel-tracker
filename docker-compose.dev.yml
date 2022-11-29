@@ -1,0 +1,14 @@
+services:
+  parcel_tracker:
+    build:
+      context: app
+      target: builder
+    container_name: parcel_tracker
+    environment:
+      - PARCEL_TRACKER_ACCESS_TOKEN=
+      - PARCEL_TRACKER_DISCORD_WEBHOOK=
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/database_files
+    ports:
+      - '61832:61832'
